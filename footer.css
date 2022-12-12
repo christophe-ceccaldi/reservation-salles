@@ -1,0 +1,21 @@
+body {
+    font-family: 'Bree Serif', serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+
+
+
+}
+
+
+img {
+    height: 40px;
+    width: 40px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+}
+
