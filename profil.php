@@ -92,7 +92,7 @@ if (isset($_POST['submit'])){
                     <!--used of php in my input to field data of users who wa register in the DB yet-->
                     <label>
                         <span>Password</span>
-                        <input type="password" id="password" name='password' minlength="3" required value ="<?php echo $password ?>"/>
+                        <input type="password" id="password" name='password' minlength="3" required value =""/>
                     </label>
                         <!--input of the submit and reset button-->
                     <label>

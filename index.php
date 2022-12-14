@@ -18,11 +18,12 @@
                 <ul>
                     <!--<li><a href="https://christophe-ceccaldi.students-laplateforme.io/livre-or/inscription.php">Accueil</a></li>-->
                     <a href="http://localhost/reservation-salles/index.php">Accueil</a>
-                    <li><a href="????????????">Planning</a></li>
+                    <li><a href="http://localhost/reservation-salles/planning.php">Planning</a></li>
                     <li><a href="http://localhost/reservation-salles/inscription.php">Inscription</a></li>
                     <li><a href="http://localhost/reservation-salles/connexion.php">Connexion</a></li>
                     <li><a href="http://localhost/reservation-salles/profil.php">Mofifier son profil</a></li>
-                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/livre-or/deconnexion.php">Deconnexion</a></li>
+                    <li><a href= ????????????></a>Réservation de salle</li>
+                    <li><a href="http://localhost/reservation-salles/deconnexion.php">Deconnexion</a></li>
                 </ul >
                 
             </nav>
