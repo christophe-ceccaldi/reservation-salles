@@ -16,13 +16,13 @@ if (isset($_POST['submit'])){
     if (isset($_POST["texttype"]) && isset($_POST["arrive"]) && isset($_POST["depart"]) && isset($_POST["date"]) && isset($_POST["textdescr"]));{
     //création variable//
     $event = htmlspecialchars($_POST["texttype"], ENT_QUOTES);
-    $arrive = $_POST["arrive"];
-    $departure = $_POST["depart"];
+    $arrive = $_POST["arrive"]; // returns '09' 
+    $departure = $_POST["depart"]; // returns '10'
     $usdate = $_POST["date"];
     $eventdes = htmlspecialchars($_POST["textdescr"], ENT_QUOTES);
 
     //formatting dates manually ...
-    $debut = "$usdate $arrive:00:00";
+    $debut = "$usdate $arrive:00:00"; // '2022-12-16 09:00:00'
     $fin = "$usdate $departure:00:00";
 
 
@@ -41,27 +41,34 @@ if (isset($_POST['submit'])){
 
 
     
-    /*$result = $conn->query("INSERT INTO `reservations` (titre, description, debut, fin, id_utilisateur) VALUES ('$event', '$eventdes', '$debut', '$fin', '$id')");*/
+    //$result = $conn->query("INSERT INTO `reservations` (titre, description, debut, fin, id_utilisateur) VALUES ('$event', '$eventdes', '$debut', '$fin', '$id')");
 
 
 
     //$result = $conn->query($reqresa);
     
-    // echo "event => $event <br>";
-    // echo "debut => $debut <br>";
-    // echo "fin => $fin <br>";
-    // echo "eventdes => $eventdes <br>";
-    $findresa =$conn->query("SELECT COUNT(*) FROM `reservations` WHERE debut >= '$arrive' AND fin <= '$departure'");
-    $check = $conn->mysqli_fetch_all($findresa);
-    //var_dump($findresa);
-    if ($check ===  0){
+    //echo "event => $event <br>";
+    //echo "debut => $debut <br>";
+    //echo "fin => $fin <br>";
+    //echo "eventdes => $eventdes <br>";
+
+    //$findresa = $conn->query("SELECT * FROM `reservations` WHERE debut >= '$debut' AND fin <= '$fin'");
+    $findresa = $conn->query("SELECT * FROM `reservations` WHERE '$debut' BETWEEN reservations.debut AND reservations.fin");
+    $check = mysqli_fetch_all($findresa);
+    $count = count($check);
+
+    //var_dump($check);
+
+    //var_dump($count);
+
+    if ($count ===  0){
         $result = $conn->query("INSERT INTO `reservations` (titre, description, debut, fin, id_utilisateur) VALUES ('$event', '$eventdes', '$debut', '$fin', '$id')");
-        else  {
+       
+    }
+    else  {
         echo 'créneau horaire dejà réservé, prenez un autre créneau horaire';
 
     }
-    }
-
 }
 
 }
