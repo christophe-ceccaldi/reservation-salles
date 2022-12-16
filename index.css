@@ -46,7 +46,7 @@ main{
 
 /*width of my header*/
 header{
-    background-color:  rgb(74, 124, 168);
+    /*background-color:  rgb(74, 124, 168);*/
     font-size: 30px;
     position: absolute;
     top: 0;
@@ -74,4 +74,12 @@ nav a{
     justify-content: space-between;
     align-items: center;
 
+}
+
+
+.erreur {
+    color: white;
+    background-color: darkred;
+    font-weight: bold;
+    padding: 6px 12px;
 }

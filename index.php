@@ -22,7 +22,7 @@
                     <li><a href="http://localhost/reservation-salles/inscription.php">Inscription</a></li>
                     <li><a href="http://localhost/reservation-salles/connexion.php">Connexion</a></li>
                     <li><a href="http://localhost/reservation-salles/profil.php">Mofifier son profil</a></li>
-                    <li><a href="http://localhost/reservation-salles/reservation-form.php">Réservation de salle</a></li>
+                    <li><a href="http://localhost/reservation-salles/reservation-form.php">Réservation</a></li>
                     <li><a href="http://localhost/reservation-salles/deconnexion.php">Deconnexion</a></li>
                 </ul >
                 

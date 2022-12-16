@@ -1,21 +1,92 @@
 <?php
 //open session//
 session_start();
+
+if (!isset($_SESSION['id'])) {
+    header('Location: connexion.php');
+}
+
+$id = $_SESSION['id'];
+
 //open connection//
 require "sqliconnexion.php";
+
+
 if (isset($_POST['submit'])){
+    if (isset($_POST["texttype"]) && isset($_POST["arrive"]) && isset($_POST["depart"]) && isset($_POST["date"]) && isset($_POST["textdescr"]));{
     //création variable//
-    $event = $_POST["texttype"];
+    $event = htmlspecialchars($_POST["texttype"], ENT_QUOTES);
     $arrive = $_POST["arrive"];
     $departure = $_POST["depart"];
     $usdate = $_POST["date"];
-    $eventdes = $_POST["textdescr"];
+    $eventdes = htmlspecialchars($_POST["textdescr"], ENT_QUOTES);
 
-    if (isset($event) && isset($arrive)  && isset($departure) && isset($usdate) && isset($eventdes));{
+    //formatting dates manually ...
+    $debut = "$usdate $arrive:00:00";
+    $fin = "$usdate $departure:00:00";
+
+
+
+    // echo $usdate;
+
+    //check if the given $usdate is on a saturday or sunday
+    $isSaturday = date('D', strtotime($usdate)) == 'Sat';
+    $isSunday = date('D', strtotime($usdate)) == 'Sun';
+
+    if ($isSaturday || $isSunday) {
+        header('Location: reservation-form.php?erreur=1'); //no reservation on weekends
+    }
+
+    //echo "IsSaturday = " . json_encode($isSaturday);
+
+
+    
+    /*$result = $conn->query("INSERT INTO `reservations` (titre, description, debut, fin, id_utilisateur) VALUES ('$event', '$eventdes', '$debut', '$fin', '$id')");*/
+
+
+
+    //$result = $conn->query($reqresa);
+    
+    // echo "event => $event <br>";
+    // echo "debut => $debut <br>";
+    // echo "fin => $fin <br>";
+    // echo "eventdes => $eventdes <br>";
+    $findresa =$conn->query("SELECT COUNT(*) FROM `reservations` WHERE debut >= '$arrive' AND fin <= '$departure'");
+    $check = $conn->mysqli_fetch_all($findresa);
+    //var_dump($findresa);
+    if ($check ===  0){
+        $result = $conn->query("INSERT INTO `reservations` (titre, description, debut, fin, id_utilisateur) VALUES ('$event', '$eventdes', '$debut', '$fin', '$id')");
+        else  {
+        echo 'créneau horaire dejà réservé, prenez un autre créneau horaire';
 
     }
+    }
+
 }
-//$reqresa =" INSERT INTO `reservations` (titre, description, debut, fin,) VALUES ("//
+
+}
+
+
+$erreur = false;
+
+if (isset($_GET['erreur'])) {
+    $erreur = true;
+
+    switch ($_GET['erreur']) {
+        case 1:
+            $msgErreur = "Ce jour n'est pas disponible";
+            break;
+        case 2:
+            $msgErreur = "";
+            break;
+        default:
+            $msgErreur = "Une erreur de réservation";
+
+    }
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +105,11 @@ if (isset($_POST['submit'])){
         <!--links to be redirected in my nav-->
         <nav>
             <ul>
-                <li><a href="http://localhost/reservation-salles/index.php">Accueil</a></li>
-                <li><a href="http://localhost/reservation-salles/connexion.php">Connexion</a></li>
-                <li><a href="https://christophe-ceccaldi.students-laplateforme.io/livre-or/livreor.php">Planning</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="planning.php">Planning</a></li>
+                <li><a href="reservation-form.php">Réservation</a></li>
+                <li><a href="deconnexion.php">Deconnexion</a></li>
             </ul >
             
         </nav>
@@ -50,6 +123,13 @@ if (isset($_POST['submit'])){
                 <h2>Réservation de salles</h2>
                 <!--champs à remplir dans le formulaire pour inscription user avec post pour récupérer les infos-->
                 <form method="post">
+
+
+                    <?php if ($erreur) : ?>
+                    <p class="erreur"><?= $msgErreur ?></p>
+                    <?php endif; ?>
+
+
                     <!--use of label to display the values of keys input (field to fill)-->
                     <label>
                         <span>Titre :</span>
@@ -60,16 +140,16 @@ if (isset($_POST['submit'])){
                     <label>
                         <span>Arrivée :</span>
                         <select name="arrive" id="time-select">
-                            <option value="09h">09h</option>
-                            <option value="10h">10h</option>
-                            <option value="11h">11h</option>
-                            <option value="12h">12h</option>
-                            <option value="13h">13h</option>
-                            <option value="14h">14h</option>
-                            <option value="15h">15h</option>
-                            <option value="16h">16h</option>
-                            <option value="17h">17h</option>
-                            <option value="18h">18h</option>
+                            <option value="09">09h</option>
+                            <option value="10">10h</option>
+                            <option value="11">11h</option>
+                            <option value="12">12h</option>
+                            <option value="13">13h</option>
+                            <option value="14">14h</option>
+                            <option value="15">15h</option>
+                            <option value="16">16h</option>
+                            <option value="17">17h</option>
+                            <option value="18">18h</option>
                         </select>
                     </label>
                        <!--<input type="time" id="appt" name="appt" min="09:00" max="17:00" required>-->
@@ -78,16 +158,16 @@ if (isset($_POST['submit'])){
                         <span>Départ :</span>
                         <!--<input type="time" id="appt" name="appt" min="10:00" max="18:00" required>-->
                         <select name="depart" id="time-select">
-                            <option value="10h">10h</option>
-                            <option value="11h">11h</option>
-                            <option value="12h">12h</option>
-                            <option value="13h">13h</option>
-                            <option value="14h">14h</option>
-                            <option value="15h">15h</option>
-                            <option value="16h">16h</option>
-                            <option value="17h">18h</option>
-                            <option value="18h">18h</option>
-                            <option value="19h">19h</option>
+                            <option value="10">10h</option>
+                            <option value="11">11h</option>
+                            <option value="12">12h</option>
+                            <option value="13">13h</option>
+                            <option value="14">14h</option>
+                            <option value="15">15h</option>
+                            <option value="16">16h</option>
+                            <option value="17">18h</option>
+                            <option value="18">18h</option>
+                            <option value="19">19h</option>
                         </select>
                     </label>
 
@@ -96,11 +176,9 @@ if (isset($_POST['submit'])){
                         <input type="date" id="date" name="date">
                     </label>
 
-                    <label>
-                    <span>Description :</span>
-                        <textarea type="textarea" id="text" name='textdescr'></textarea>
-                    </label>
-                        <input type="submit" id="button" name='submit'/>
+                    <label for="textdescr">Description:</label>
+                    <textarea type="textarea" id="textdescr" name='textdescr'></textarea>
+                    <input type="submit" id="button" name='submit'/>
                 </form>
             </div>
         </div>        

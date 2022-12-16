@@ -32,7 +32,7 @@ require "sqliconnexion.php";
   $_SESSION['id'] = $user['id'];
   //echo $result[0];
 
-  //header("Location: https://christophe-ceccaldi.students-laplateforme.io/livre-or/commentaires.php");
+  header("Location: reservation-form.php");
 
 
   }
@@ -59,7 +59,9 @@ require "sqliconnexion.php";
       <ul>
         <li><a href="http://localhost/reservation-salles/index.php">Accueil</a></li>
         <li><a href="http://localhost/reservation-salles/profil.php">Mofifier son profil</a></li>
-        <li><a href="http://localhost/livre-or/livreor.php">Planning</a></li>
+        <li><a href="planning.php">Planning</a></li>
+        <li><a href="reservation-form.php">Réservation</a></li>
+        <li><a href="deconnexion.php">Deconnexion</a></li>
       </ul >
         
     </nav>
