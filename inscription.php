@@ -1,5 +1,5 @@
 <?php
-// J'inclu la connexion à la BDD pour ne pas avoir à le faire sur toutes les pages. $conn est disponible // 
+// J'inclu la connexion à la BDD pour ne pas avoir à le faire sur toutes les pages. $conn est disponible nnn// 
 
 require "sqliconnexion.php";
 
