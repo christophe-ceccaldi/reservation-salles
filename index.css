@@ -46,7 +46,7 @@ main{
 
 /*width of my header*/
 header{
-    /*background-color:  rgb(74, 124, 168);*/
+    background-color:  rgb(74, 124, 168);
     font-size: 30px;
     position: absolute;
     top: 0;

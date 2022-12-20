@@ -61,14 +61,14 @@ if (isset($_POST['submit'])){
 
     //var_dump($count);
 
-    if ($count ===  0){
+   /* if ($count ===  0){
         $result = $conn->query("INSERT INTO `reservations` (titre, description, debut, fin, id_utilisateur) VALUES ('$event', '$eventdes', '$debut', '$fin', '$id')");
        
     }
     else  {
         echo 'créneau horaire dejà réservé, prenez un autre créneau horaire';
 
-    }
+    }*/
 }
 
 }
@@ -122,7 +122,22 @@ if (isset($_GET['erreur'])) {
         </nav>
     </header>
     <body class ="mama01">
+   
     <main>
+    <?php if (isset($_POST['submit'])) {
+
+        if ($count ===  0){
+            $result = $conn->query("INSERT INTO `reservations` (titre, description, debut, fin, id_utilisateur) VALUES ('$event', '$eventdes', '$debut', '$fin', '$id')");
+           
+        }
+        else  {
+            echo '<p>créneau horaire dejà réservé, prenez un autre créneau horaire</p>';
+    
+        }
+    }
+    
+    
+    ?>
         <div class= "displaymod">
 
             <div>

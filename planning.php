@@ -114,7 +114,7 @@ $reservationsTrouver = findReservationByDate('2022-12-16 12:00:00', $reservation
             <tbody>
                 <?php for ($h = 8; $h <= 18; $h++):?>
                 <tr>
-                    <td class="horraires"><?= "$h - " . ($h + 1) . " h" ?></td>
+                    <td class="horraires"><?= "$h h - " . ($h + 1) . " h" ?></td>
 
                     <?php for($j = 0; $j < count($days); $j++) :?>
 
@@ -124,17 +124,15 @@ $reservationsTrouver = findReservationByDate('2022-12-16 12:00:00', $reservation
                             
                             $readableDate = date('w F jS, Y', strtotime($date));
                         ?>
-
-
                         <td class="reservation" title="<?= $readableDate ?>">
 
                             <?php if($reservation) :?>
-                            <a href="reservation.php?id=1" title="<?= $reservation['description']?>">
+                            <a href="reservation.php?id=<?= $reservation['id']?>" title="<?= $reservation['description']?>">
                                 <span class="date" hidden><?= $date?></span>
                                 <h3 class="titre"><?= $reservation['titre']?></h3>
                                 <p class="description"><?= $reservation['description']?></p>
                             </a>
-                            <?php endif;?>
+                            <?php else: echo 'disponible'; endif;?>
 
                         </td>
 

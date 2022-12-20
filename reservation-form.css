@@ -12,7 +12,7 @@ body {
     margin: 0;
 }
 /*width of my header*/
-/*header{
+header{
     background-color:  rgb(74, 124, 168);
     display: flex;
     font-size: 30px;
@@ -20,7 +20,7 @@ body {
     height: 100px;
     position: absolute;
     top: 0;
-}*/
+}
 main{
     font-size: 20px;
         

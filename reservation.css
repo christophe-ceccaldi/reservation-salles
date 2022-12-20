@@ -1,0 +1,17 @@
+.displaymod div {
+    width: auto;
+    height: 360px;
+    background-color: rgb(155 144 142 / 37%);
+    align-self: center;
+    margin: 0 auto;
+    padding: 24px;
+    border-radius: 24px;
+
+}
+
+.inforesa p{
+    font-size: 25px;
+    align-content: center;
+    font-family: 'Bree Serif', serif, 'Ubuntu Condensed', sans-serif;
+
+}
