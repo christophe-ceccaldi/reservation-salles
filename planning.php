@@ -88,8 +88,8 @@ $reservationsTrouver = findReservationByDate('2022-12-16 12:00:00', $reservation
         <nav>
             <ul>
                 <li><a href="http://localhost/reservation-salles/index.php">Accueil</a></li>
+                <li><a href="reservation-form.php">Réservation</a></li>
                 <li><a href="http://localhost/reservation-salles/connexion.php">Connexion</a></li>
-                <li><a href="http://localhost/reservation-salles/planning.php">Planning</a></li>
             </ul>
             
         </nav>

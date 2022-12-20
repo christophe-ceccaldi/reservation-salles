@@ -56,7 +56,7 @@ if (isset($_POST['submit'])){
     $findresa = $conn->query("SELECT * FROM `reservations` WHERE '$debut' BETWEEN reservations.debut AND reservations.fin");
     $check = mysqli_fetch_all($findresa);
     $count = count($check);
-
+    header ('location: planning.php');
     //var_dump($check);
 
     //var_dump($count);
@@ -113,9 +113,8 @@ if (isset($_GET['erreur'])) {
         <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="profil.php">modifier profil</a></li>
                 <li><a href="planning.php">Planning</a></li>
-                <li><a href="reservation-form.php">Réservation</a></li>
                 <li><a href="deconnexion.php">Deconnexion</a></li>
             </ul >
             

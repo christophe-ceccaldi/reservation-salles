@@ -58,11 +58,8 @@ require "sqliconnexion.php";
     <nav>
       <ul>
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="profil.php">Mofifier son profil</a></li>
         <li><a href="planning.php">Planning</a></li>
-        <li><a href="reservation-form.php">Réservation</a></li>
-        <li><a href="deconnexion.php">Deconnexion</a></li>
-      </ul >
+        </ul >
         
     </nav>
   </header>

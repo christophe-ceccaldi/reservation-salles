@@ -60,7 +60,7 @@ require "sqliconnexion.php";
             <ul>
                 <li><a href="http://localhost/reservation-salles/index.php">Accueil</a></li>
                 <li><a href="http://localhost/reservation-salles/connexion.php">Connexion</a></li>
-                <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salle/planning.php">Planning</a></li>
+                <li><a href="http://localhost/reservation-salles/planning.php">Planning</a></li>
             </ul >
             
         </nav>

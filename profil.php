@@ -4,7 +4,7 @@ session_start();
 $login = $_SESSION['login'];
 //if is not a valid seesion go to connection page//
 if (!isset($_SESSION['id'])) {
-    header("Location: https://christophe-ceccaldi.students-laplateforme.io/livre-or/connexion.php");
+    header("Location: connexion.php");
 }
 // J'inclu la connexion à la BDD pour ne pas avoir à le faire sur toutes les pages. $conn est disponible // 
 
@@ -64,10 +64,9 @@ if (isset($_POST['submit'])){
         <!--links to be redirected in my nav-->
             <nav>
                 <ul>
-                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/livre-or/profil.php">Modifier profil</a></li>
-                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/livre-or/commentaires.php">Commentaires</a></li>
-                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/livre-or/livreor.php">Livre d'or</a></li>
-                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/livre-or/deconnexion.php">Deconnexion</a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="planning.php">Planning</a></li>
+                    <li><a href="deconnexion.php">Deconnexion</a></li>
                 </ul >
                 
             </nav>
