@@ -1,6 +1,9 @@
 <?php
 //ouverture de session//
 session_start();
+// J'inclu la connexion à la BD pour ne pas avoir à le faire sur toutes les pages $conn est disponible // 
+require "sqliconnexion.php";
+
 
 //if conditions are ok so it's valid user//
 $validuser = false;
@@ -14,9 +17,8 @@ if ($validuser) {
   $login = $_GET["login"];
   $password = $_GET["password"];
 
-// J'inclu la connexion à la BD pour ne pas avoir à le faire sur toutes les pages $conn est disponible // 
 
-require "sqliconnexion.php";
+
 
   //connexionn DB on plesk
   //$conn = new mysqli("localhost", "chris", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
@@ -47,8 +49,8 @@ require "sqliconnexion.php";
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="connexion.css">
+  <link rel="stylesheet" href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/index.css">
+  <link rel="stylesheet" href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/connexion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
@@ -57,8 +59,8 @@ require "sqliconnexion.php";
   <header>
     <nav>
       <ul>
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="planning.php">Planning</a></li>
+        <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/index.php">Accueil</a></li>
+        <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/planning.php">Planning</a></li>
         </ul >
         
     </nav>

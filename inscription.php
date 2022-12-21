@@ -22,7 +22,7 @@ require "sqliconnexion.php";
                 //request to send information in the DB//
                 $sql = $conn->query("INSERT INTO `utilisateurs` (login, password) VALUES('$login', '$password')");
 
-                       header("Location: http://localhost/reservation-salles/connexion.php");
+                       header("Location: connexion.php");
 
                 //message about comfimation or else if the login is not good or password not ok//
                 echo 'vous etes bien enregistré';
@@ -48,8 +48,8 @@ require "sqliconnexion.php";
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="inscription.css">
+        <link rel="stylesheet" href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/index.css">
+        <link rel="stylesheet" href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/inscription.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
@@ -58,9 +58,9 @@ require "sqliconnexion.php";
         <!--links to be redirected in my nav-->
         <nav>
             <ul>
-                <li><a href="http://localhost/reservation-salles/index.php">Accueil</a></li>
-                <li><a href="http://localhost/reservation-salles/connexion.php">Connexion</a></li>
-                <li><a href="http://localhost/reservation-salles/planning.php">Planning</a></li>
+                <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/index.php">Accueil</a></li>
+                <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/connexion.php">Connexion</a></li>
+                <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/planning.php">Planning</a></li>
             </ul >
             
         </nav>

@@ -77,8 +77,8 @@ $reservationsTrouver = findReservationByDate('2022-12-16 12:00:00', $reservation
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="planning.css">
+        <link rel="stylesheet" href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/index.css">
+        <link rel="stylesheet" href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/planning.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
@@ -87,9 +87,9 @@ $reservationsTrouver = findReservationByDate('2022-12-16 12:00:00', $reservation
         <!--links to be redirected in my nav-->
         <nav>
             <ul>
-                <li><a href="http://localhost/reservation-salles/index.php">Accueil</a></li>
-                <li><a href="reservation-form.php">Réservation</a></li>
-                <li><a href="http://localhost/reservation-salles/connexion.php">Connexion</a></li>
+                <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/index.php">Accueil</a></li>
+                <li><a href="https://christophe-ceccaldi.students-laplateforme.io/reservation-salles/reservation-form.php">Réservation</a></li>
+                <li><a href="hhttps://christophe-ceccaldi.students-laplateforme.io/reservation-salles/connexion.php">Connexion</a></li>
             </ul>
             
         </nav>

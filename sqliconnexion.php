@@ -2,7 +2,7 @@
 
  //connexionn DB on plesk
 try{
-    $conn = new mysqli("localhost", "root", "", "reservationsalles");
+    $conn = new mysqli("localhost", "cc", "snowrocket13", "christophe-ceccaldi_reservationsalles");
  
 }
 catch(Exception $e) {
